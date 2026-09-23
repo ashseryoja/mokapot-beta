@@ -46,8 +46,8 @@ function renderMotion() {
       foodLayers[index].style.filter=`drop-shadow(0 ${mix(22,3,landing)}px ${mix(18,4,landing)}px #0a465529)`;
     });
     drift.style.transform=`translate(-50%, -50%) rotate(${mouseX*1.4-amount*2}deg) translate3d(${mouseX*9}px,${mouseY*7}px,0)`;
-    document.querySelector('.word-top').style.transform=`translateX(${-amount*2}%)`;
-    document.querySelector('.word-bottom').style.transform=`translateX(${amount*1.5}%)`;
+    document.querySelector('.word-top').style.transform=innerWidth>700?`translateX(${-amount*2}%)`:'';
+    document.querySelector('.word-bottom').style.transform=innerWidth>700?`translateX(${amount*1.5}%)`:'';
     labels.forEach(el=>el.style.opacity=String(clamp(1-amount*2.5,0,1)));
     document.querySelector('.scene-index').textContent=`0${Math.min(3,Math.floor(progress*3)+1)} — 03`;
   }
@@ -62,12 +62,8 @@ const sectionObserver=new IntersectionObserver(entries=>{for(const e of entries)
 function toggleMenu(open){menuPanel.hidden=!open;root.classList.toggle('menu-open',open);menuToggle.setAttribute('aria-expanded',String(open));menuToggle.setAttribute('aria-label',open?'Փակել ընտրացանկը':'Բացել ընտրացանկը');menuIcon.src=open?'assets/icons/close.svg':'assets/icons/menu.svg';if(open)menuPanel.querySelector('a').focus();}
 menuToggle.addEventListener('click',()=>toggleMenu(menuPanel.hidden));menuPanel.querySelector('.menu-close').addEventListener('click',()=>{toggleMenu(false);menuToggle.focus();});menuPanel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!menuPanel.hidden){toggleMenu(false);menuToggle.focus();}if(e.key==='Tab'&&!menuPanel.hidden){const items=[menuPanel.querySelector('.menu-close'),...menuPanel.querySelectorAll('a')];const first=items[0],last=items.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
-const products={classic:{name:'ԴԱՍԱԿԱՆ',image:'classic.png',description:'Սուրճի բույրը, նուրբ մասկարպոնեն ու կակաոն՝ մեկ գդալի մեջ։ Ծանոթ համ, որին միշտ ուզում ես վերադառնալ։'},nuts:{name:'ՊԻՍՏԱԿՈՎ',image:'pistachio.png',description:'Նուրբ կրեմ ու պիստակի հարուստ համ։ Փոքրիկ դադար՝ քո սիրելի համով։'},berries:{name:'ԵԼԱԿՈՎ',image:'strawberry.png',description:'Ելակի թարմությունն ու սերուցքային կրեմը՝ միասին։ Ամառային տրամադրություն՝ ամեն գդալի մեջ։'}};
-const filters=[...document.querySelectorAll('.filter')];filters.forEach(button=>button.addEventListener('click',()=>{filters.forEach(el=>{el.classList.toggle('active',el===button);el.setAttribute('aria-pressed',String(el===button));});document.querySelectorAll('.product').forEach(card=>{card.hidden=button.dataset.filter!=='all'&&card.dataset.product!==button.dataset.filter;card.classList.add('visible');});}));
-const dialog=document.querySelector('.product-dialog');document.querySelectorAll('[data-product]').forEach(button=>button.addEventListener('click',()=>{const p=products[button.dataset.product];dialog.querySelector('h2').textContent=p.name;dialog.querySelector('.dialog-description').textContent=p.description;dialog.querySelector('.dialog-image img').src='assets/'+p.image;dialog.querySelector('.dialog-image img').alt=p.name;dialog.showModal();}));
-dialog.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 // Fit Armenian display text using real rendered metrics after local fonts load.
 // Only font size changes: no scaleX, condensed transforms, clipped labels or rasterized text.
-function fitTypography(){document.querySelectorAll('.fit-text').forEach(el=>{el.style.fontSize='';const available=el.clientWidth;const range=document.createRange();range.selectNodeContents(el);const width=range.getBoundingClientRect().width;if(width>available){const px=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=(px*(available/width)*.985)+'px';}});}
+function fitTypography(){document.querySelectorAll('.fit-text').forEach(el=>{el.style.fontSize='';if(innerWidth<=700&&el.classList.contains('hero-word'))return;const available=el.clientWidth;const range=document.createRange();range.selectNodeContents(el);const width=range.getBoundingClientRect().width;if(width>available){const px=parseFloat(getComputedStyle(el).fontSize);el.style.fontSize=(px*(available/width)*.985)+'px';}});}
 document.fonts.ready.then(()=>{fitTypography();requestTick();});let resizeTimer;addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(fitTypography,100);});
 setMotion(reduced);
