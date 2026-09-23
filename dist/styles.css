@@ -42,8 +42,8 @@ html.reduce-motion{scroll-behavior:auto}
 @media(max-width:700px){
  .hero-scroll{height:calc(100svh + 260px);min-height:0}
  .hero-poster{height:100vh;height:100svh;min-height:0}
- .top-nav{height:62px;padding:0 6%}.mobile-wordmark{font-size:24px}
- .hero-type{position:absolute;top:70px;left:6%;right:6%;display:flex;align-items:baseline;justify-content:center;gap:3vw}
+ .top-nav{height:calc(62px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 6% 0}.mobile-wordmark{font-size:24px}
+ .hero-type{position:absolute;top:calc(70px + env(safe-area-inset-top));left:6%;right:6%;display:flex;align-items:baseline;justify-content:center;gap:3vw}
  .hero-word{position:static;width:auto!important;font-size:21vw;line-height:1.05;letter-spacing:-.045em;animation:wordEnter 1s var(--ease) both}
  .word-bottom{font-size:21vw;animation-delay:.12s}
  .scene-drift{width:min(102vw,72svh);max-width:none;left:49%;top:49%}
@@ -65,4 +65,4 @@ html.reduce-motion{scroll-behavior:auto}
  .footer-brand{font-size:29px}.simple-footer .motion-toggle{justify-self:start;font-size:10px}.simple-footer>span{justify-self:end}
  .reduce-motion .hero-scroll{height:auto}
 }
-@media(max-width:700px) and (max-height:600px){.hero-type{top:60px}.hero-word,.word-bottom{font-size:21vw}.scene-drift{top:47%;width:min(102vw,66svh)}.hero-copy{bottom:max(32px,env(safe-area-inset-bottom))}.hero-copy>p{display:none}}
+@media(max-width:700px) and (max-height:600px){.hero-type{top:calc(60px + env(safe-area-inset-top))}.hero-word,.word-bottom{font-size:21vw}.scene-drift{top:47%;width:min(102vw,66svh)}.hero-copy{bottom:max(32px,env(safe-area-inset-bottom))}.hero-copy>p{display:none}}
