@@ -1,0 +1,7 @@
+.DS_Store
+.sites-runtime/
+.vercel/
+/design/
+/design-qa.md
+/design-directions.json
+/asset-prompts.json
