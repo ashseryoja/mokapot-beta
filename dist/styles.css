@@ -44,8 +44,8 @@ html.reduce-motion{scroll-behavior:auto}
  .hero-poster{height:100vh;height:100svh;min-height:0}
  .top-nav{height:calc(62px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 6% 0}.mobile-wordmark{font-size:24px}
  .hero-type{position:absolute;top:calc(70px + env(safe-area-inset-top));left:6%;right:6%;display:flex;align-items:baseline;justify-content:center;gap:3vw}
- .hero-word{position:static;width:auto!important;font-size:21vw;line-height:1.05;letter-spacing:-.045em;animation:wordEnter 1s var(--ease) both}
- .word-bottom{font-size:21vw;animation-delay:.12s}
+ .hero-word{position:static;width:auto!important;font-size:17vw;line-height:1.05;letter-spacing:-.045em;animation:wordEnter 1s var(--ease) both}
+ .word-bottom{font-size:17vw;animation-delay:.12s}
  .scene-drift{width:min(102vw,72svh);max-width:none;left:49%;top:49%}
  .ingredient-label,.scene-index,.scroll-hint{display:none}
  .hero-copy{left:6%;right:6%;bottom:max(42px,env(safe-area-inset-bottom));max-width:none;text-align:center}

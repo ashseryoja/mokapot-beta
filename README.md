@@ -1,6 +1,6 @@
-# MokaPot Tiramisu
+# Terra Misu Tiramisu
 
-An Armenian-language website concept for MokaPot, a tiramisu café in Yerevan. Built as a small static site with responsive typography, an animated parallax hero, a filterable flavour catalogue, and accessible product details.
+An Armenian-language website concept for Terra Misu, a tiramisu café in Yerevan. Built as a small static site with responsive typography, an animated parallax hero, a filterable flavour catalogue, and accessible product details.
 
 ## Run locally
 
