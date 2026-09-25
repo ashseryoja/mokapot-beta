@@ -54,7 +54,7 @@ html.reduce-motion{scroll-behavior:auto}
  .menu-section{padding:44px 6% 38px}.menu-heading{display:block;margin-bottom:25px}
  .menu-heading h2,.cafe-copy h2{font-size:38px}.menu-heading .eyebrow,.cafe-copy .eyebrow{font-size:10px;margin-bottom:10px}
  .menu-heading>p{font-size:14px;margin-top:14px}.menu-heading>p br{display:none}
- .real-menu{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}.menu-item:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+ .real-menu{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 14px}.menu-item:last-child{grid-column:1/-1;width:calc((100% - 14px)/2);justify-self:center}
  .menu-item-copy{padding-top:12px}.menu-category{font-size:9px;letter-spacing:.02em}.menu-item h3{font-size:18px;line-height:1.4;margin-top:5px;overflow-wrap:break-word}
  .menu-note{font-size:12px;margin-top:25px;padding-top:18px;gap:4px 8px}
  .cafe-section{display:flex;flex-direction:column;gap:28px;padding:38px 6% 44px}

@@ -16,6 +16,6 @@ Import this repository in Vercel. The project uses the `dist` directory as its s
 
 ## Assets and content
 
-The interface is in Armenian. Self-hosted fonts are included with their licenses: Noto Sans Armenian and Mardoto. The three tiramisu menu photos are AI-generated illustrative assets on white backgrounds; the flavour examples are illustrative as well. Check the café's current menu and product photography before using them as factual listings.
+The interface is in Armenian. Self-hosted fonts are included with their licenses: Noto Sans Armenian and Mardoto. The nine tiramisu menu photos are AI-generated illustrative assets on white backgrounds; the flavour examples are illustrative as well. Check the café's current menu and product photography before using them as factual listings.
 
 The hero uses four transparent image layers for its scroll animation. It does not yet use 3D models. Replace those assets with a GLB/glTF renderer after configuring the model-generation API securely on a server.
